@@ -24759,7 +24759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   Inventory: {fileID: 924130161}
-  TrapPlacer: {fileID: 1963460335}
+  TrapPlacer: {fileID: 7637340440777544292, guid: 2cb113cb4bcf24f9daeba3fac413bca5, type: 3}
 --- !u!50 &1497093955
 Rigidbody2D:
   serializedVersion: 5
@@ -24906,17 +24906,6 @@ Transform:
   - {fileID: 283208676}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1963460335 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7637340440777544292, guid: 2cb113cb4bcf24f9daeba3fac413bca5, type: 3}
-  m_PrefabInstance: {fileID: 2948381059292030325}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6be55c20d57c9413181ea42ba6d3272a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MoonshinePlacer
 --- !u!1 &2044879772
 GameObject:
   m_ObjectHideFlags: 0
