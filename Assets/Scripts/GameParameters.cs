@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class GameParameters : MonoBehaviour
 {
     public static float PlayerMovementSpeed = 5f;
+
+    public static int NumberOfSpikes = 5;
     
     public static Key MoveLeft  = Key.A;
     public static Key MoveRight = Key.D;

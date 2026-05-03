@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Bone
   - Beer
+  - Trap
+  - Spikes
+  - Treeline
   layers:
   - Default
   - TransparentFX
