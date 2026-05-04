@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class GameParameters : MonoBehaviour
 {
     public static float PlayerMovementSpeed = 5f;
+    public static float PlayerDashSpeed = 20f;
 
     public static int NumberOfSpikes = 5;
     

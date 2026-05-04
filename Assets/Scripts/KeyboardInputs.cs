@@ -3,7 +3,13 @@ using UnityEngine.InputSystem;
 
 public class KeyboardInput : MonoBehaviour
 {
+    private bool isDashing;
+    private float dashTime = 0.15f;
+    private float dashTimer;
+    private Vector2 lastMovement = Vector2.right;
+    
     public PlayerMovement PlayerMovement;
+    
     private void Update()
     {
         if (PlayerMovement == null)
@@ -11,8 +17,30 @@ public class KeyboardInput : MonoBehaviour
             return;
         }
         Vector2 movement = GetMovement();
-        PlayerMovement.Move(movement, this);
+        if (movement != Vector2.zero)
+        {
+            lastMovement = movement;
+        }
+        
+        if (IsSpaceKeyPressed() && !isDashing)
+        {
+            isDashing = true;
+            dashTimer = dashTime;
+            PlayerMovement.Dash(lastMovement, this);
+        }
+
+        if (!isDashing)
+        {
+            PlayerMovement.Move(movement, this);
+        }
+        else
+        {
+            dashTimer -= Time.deltaTime;
+            if (dashTimer <= 0)
+                isDashing = false;
+        }
     }
+    
     public Vector2 GetMovement()
     {
         float horizontalInput = GetHorizontalInput();
@@ -81,5 +109,10 @@ public class KeyboardInput : MonoBehaviour
     private bool IsDiagonalMovement(Vector2 movement)
     {
         return movement.sqrMagnitude > 1f;
+    }
+    
+    private bool IsSpaceKeyPressed()
+    {
+        return Keyboard.current[GameParameters.Dash].wasPressedThisFrame;
     }
 }

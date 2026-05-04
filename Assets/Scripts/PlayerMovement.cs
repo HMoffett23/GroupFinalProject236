@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float Speed = GameParameters.PlayerMovementSpeed;
+    public float DashSpeed = GameParameters.PlayerDashSpeed;
     public Rigidbody2D Rigidbody;
     
     private void ApplyMovement(Vector2 direction)
@@ -36,6 +37,17 @@ public class PlayerMovement : MonoBehaviour
     public void Move(Vector2 direction, object inputDevice)
     {
         ApplyMovement(direction);
+        FaceCorrectDirection(direction);
+    }
+    
+    private void ApplyDashMovement(Vector2 direction)
+    {
+        Rigidbody.linearVelocity = direction * DashSpeed;
+    }
+    
+    public void Dash(Vector2 direction, object inputDevice)
+    {
+        ApplyDashMovement(direction);
         FaceCorrectDirection(direction);
     }
 }
