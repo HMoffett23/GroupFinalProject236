@@ -4,10 +4,15 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public TMP_Text playerHealthText;
+    private SpriteRenderer playerSpriteRenderer;
     
     public float maxHealth = 3;
     public float currentHealth;
 
+    public void Awake()
+    {
+        playerSpriteRenderer = GetComponent<SpriteRenderer>();
+    }
     public void UpdateHealthWhenSpikeHits()
     {
         currentHealth = currentHealth - 1;
@@ -19,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
         {
             UpdateHealthWhenSpikeHits();
             ChangeHealthInUI();
+            Respawn();
             Destroy(other.gameObject);
         }
     }
@@ -26,4 +32,12 @@ public class PlayerHealth : MonoBehaviour
          {
              playerHealthText.text = "HP: " + currentHealth + "/" + maxHealth;
          }
+
+    public void Respawn()
+    {
+        if (currentHealth == 0)
+        {
+            playerSpriteRenderer.transform.position = new Vector3(-6,2,0);
+        }
+    }
 }
