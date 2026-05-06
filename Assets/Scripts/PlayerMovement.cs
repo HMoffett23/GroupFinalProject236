@@ -1,12 +1,13 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float Speed = GameParameters.PlayerMovementSpeed;
     public float DashSpeed = GameParameters.PlayerDashSpeed;
     public Rigidbody2D Rigidbody;
-    
-    private void ApplyMovement(Vector2 direction)
+
+    public void ApplyMovement(Vector2 direction)
     {
         Rigidbody.linearVelocity = direction * Speed;
     }
@@ -19,22 +20,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     
-    private void FlipFacingDirection()
+    public void FlipFacingDirection()
     {
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
     }
     
-    private bool IsMoving(Vector2 direction)
-    {
-        return direction != Vector2.zero;
-    }
-    
-    private bool IsNotFacingCorrectDirection(Vector2 direction)
+    public bool IsNotFacingCorrectDirection(Vector2 direction)
     {
         return direction.x > 0 && transform.localScale.x < 0 || direction.x < 0 && transform.localScale.x > 0;
     }
     
-    public void Move(Vector2 direction, object inputDevice)
+    public void Move(Vector2 direction)
     {
         ApplyMovement(direction);
         FaceCorrectDirection(direction);
@@ -50,4 +46,5 @@ public class PlayerMovement : MonoBehaviour
         ApplyDashMovement(direction);
         FaceCorrectDirection(direction);
     }
+    
 }

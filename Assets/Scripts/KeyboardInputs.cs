@@ -31,7 +31,7 @@ public class KeyboardInput : MonoBehaviour
 
         if (!isDashing)
         {
-            PlayerMovement.Move(movement, this);
+            PlayerMovement.Move(movement);
         }
         else
         {
