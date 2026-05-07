@@ -27,4 +27,17 @@ public static class SpawnTools
         Vector3 randomTopOfScreenLocation = RandomTopOfScreenLocationScreenSpace();
         return Camera.main.ScreenToWorldPoint(randomTopOfScreenLocation);
     }
+    
+    public static Vector3 CenterOfScreenLocationScreenSpace()
+    {
+        float middleX = Screen.width * 0.5f;
+        float middleY = Screen.height * 0.7f;
+        return new Vector3(middleX, middleY, 10);
+    }
+    
+    public static Vector3 CenterOfScreenLocationWorldSpace()
+    {
+        Vector3 centerOfScreenLocationScreenSpace = CenterOfScreenLocationScreenSpace();
+        return Camera.main.ScreenToWorldPoint(centerOfScreenLocationScreenSpace);
+    }
 }

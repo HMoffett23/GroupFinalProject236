@@ -12,17 +12,24 @@ public class Player : MonoBehaviour
 
     }
 
+    public void HandleItemPickup(Collider2D other)
+    {
+        bool itemAdded = Inventory.AddItem(other.GetComponent<SpriteRenderer>().sprite);
+        if (itemAdded)
+        {
+            Destroy(other.gameObject);
+        }
+    }
+    
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Bone")
         {
-            Destroy(other.gameObject);
-            Inventory.AddItem(other.GetComponent<SpriteRenderer>().sprite);
+            HandleItemPickup(other);
         }
         else if (other.tag == "Beer")
         {
-            Destroy(other.gameObject);
-            Inventory.AddItem(other.GetComponent<SpriteRenderer>().sprite);
+            HandleItemPickup(other);
         }
         else if (other.tag == "Trap")
         {
