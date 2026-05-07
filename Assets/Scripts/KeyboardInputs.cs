@@ -115,4 +115,9 @@ public class KeyboardInput : MonoBehaviour
     {
         return Keyboard.current[GameParameters.Dash].wasPressedThisFrame;
     }
+    
+    public static bool IsInteractKeyPressed()
+    {
+        return (Keyboard.current[GameParameters.Interact].wasPressedThisFrame);
+    }
 }

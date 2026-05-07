@@ -13,5 +13,7 @@ public class GameParameters : MonoBehaviour
     public static Key MoveUp    = Key.W;
     public static Key MoveDown  = Key.S;
     public static Key Dash  = Key.Space;
-
+    public static Key Interact = Key.E;
+    
+    public static float InteractTimeInSeconds = 0.1f;
 }

@@ -9,6 +9,7 @@ TagManager:
   - Trap
   - Spikes
   - Treeline
+  - Button
   layers:
   - Default
   - TransparentFX
