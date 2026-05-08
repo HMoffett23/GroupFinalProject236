@@ -5,6 +5,7 @@ public class PlayerInteraction : MonoBehaviour
     private TileType currentTileType;
     
     private InteractableButton currentButtonScript;
+    private InteractableText currentTextScript;
    
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -33,6 +34,7 @@ public class PlayerInteraction : MonoBehaviour
         else if (other.CompareTag("Text"))
         {
             currentTileType = TileType.Text;
+            currentTextScript = other.GetComponent<InteractableText>();
         }
     }
 
