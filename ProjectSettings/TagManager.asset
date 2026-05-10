@@ -10,6 +10,7 @@ TagManager:
   - Spikes
   - Treeline
   - Button
+  - Text
   layers:
   - Default
   - TransparentFX

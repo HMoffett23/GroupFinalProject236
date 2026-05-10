@@ -23,14 +23,14 @@ public class PlayerInteraction : MonoBehaviour
             currentTileType = TileType.Button;
             currentButtonScript = other.GetComponent<InteractableButton>();
         }
-        else if (other.CompareTag("Door"))
-        {
-            currentTileType = TileType.Door;
-        }
-        else if (other.CompareTag("Statue"))
-        {
-            currentTileType = TileType.Statue;
-        }
+        /* else if (other.CompareTag("Door"))
+         {
+             currentTileType = TileType.Door;
+         }
+         else if (other.CompareTag("Statue"))
+         {
+             currentTileType = TileType.Statue;
+         } */
         else if (other.CompareTag("Text"))
         {
             currentTileType = TileType.Text;
@@ -58,9 +58,10 @@ public class PlayerInteraction : MonoBehaviour
                 break;
             case TileType.Statue:
                 InteractableStatue.Rotate();
-                break;
+                break; */
             case TileType.Text:
-                InteractableText.DisplayText();*/
+                currentTextScript.Display();
+                break;
         }
     }
 }
