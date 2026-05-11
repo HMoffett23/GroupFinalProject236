@@ -4,7 +4,12 @@ public class InteractableButton : InteractableTile
 {
     public GameObject door;
     
-    public void OpenDoor()
+    public override void Interact()
+    {
+        OpenDoor();
+    }
+
+    private void OpenDoor()
     {
         door.SetActive(false);
     }

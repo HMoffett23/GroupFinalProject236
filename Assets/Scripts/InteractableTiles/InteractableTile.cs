@@ -6,17 +6,19 @@ using UnityEngine.Tilemaps;
 
 public class InteractableTile : MonoBehaviour
 {
-    public static bool IsInteracting = false;
-    
     private bool isPlayerInRange = false;
-    private Coroutine countdownCoroutine;
-
+    
     void Update()
     {
         if (isPlayerInRange && KeyboardInput.IsInteractKeyPressed())
         {
-            countdownCoroutine = StartCoroutine(InteractionCoroutine());
+            Interact();
         }
+    }
+
+    public virtual void Interact()
+    {
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -33,15 +35,5 @@ public class InteractableTile : MonoBehaviour
         {
             isPlayerInRange = false;
         }
-    }
-
-    private IEnumerator InteractionCoroutine()
-    {
-        IsInteracting = true;
-        
-        float interactTime = GameParameters.InteractTimeInSeconds;
-        
-        yield return new WaitForSeconds(interactTime);
-        IsInteracting = false;
     }
 }

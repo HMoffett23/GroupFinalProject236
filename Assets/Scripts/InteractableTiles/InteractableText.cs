@@ -9,7 +9,7 @@ public class InteractableText : InteractableTile
     public GameObject text;
     public CanvasGroup textObjectsCanvasGroup;
 
-    public void Display()
+    public override void Interact()
     {
         StartCoroutine(DisplayAndWaitRoutine());
     }

@@ -11,6 +11,8 @@ TagManager:
   - Treeline
   - Button
   - Text
+  - Rotator
+  - Rotator2
   layers:
   - Default
   - TransparentFX
