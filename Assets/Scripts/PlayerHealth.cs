@@ -16,6 +16,11 @@ public class PlayerHealth : MonoBehaviour
     public void UpdateHealthWhenSpikeHits()
     {
         currentHealth = currentHealth - 1;
+        if (currentHealth <= 0)
+        {
+            currentHealth = 3;
+            Respawn();
+        }
     }
     
     public void OnCollisionEnter2D(Collision2D other)
@@ -24,7 +29,6 @@ public class PlayerHealth : MonoBehaviour
         {
             UpdateHealthWhenSpikeHits();
             ChangeHealthInUI();
-            Respawn();
             Destroy(other.gameObject);
         }
     }
@@ -34,10 +38,7 @@ public class PlayerHealth : MonoBehaviour
          }
 
     public void Respawn()
-    {
-        if (currentHealth == 0)
-        {
-            playerSpriteRenderer.transform.position = new Vector3(-6,2,0);
-        }
+    { 
+        playerSpriteRenderer.transform.position = new Vector3(-6,2,0);
     }
 }

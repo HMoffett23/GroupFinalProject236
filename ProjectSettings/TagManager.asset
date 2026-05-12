@@ -11,8 +11,10 @@ TagManager:
   - Treeline
   - Button
   - Text
-  - Rotator
-  - Rotator2
+  - StoneRed
+  - StoneBlue
+  - StoneYellow
+  - StoneGreen
   layers:
   - Default
   - TransparentFX
