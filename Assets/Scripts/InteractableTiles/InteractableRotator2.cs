@@ -4,13 +4,15 @@ using UnityEngine;
 public class InteractableRotator2 : InteractableTile
 {
     public List<Sprite> Sprites;
+    public bool IsSolved = false;
     
     private int currentSpriteNumber = 0;
     private SpriteRenderer rotatedObjectSpriteRenderer;
 
     public override void Interact()
     {
-        Rotate();
+        if (!IsSolved)
+            Rotate();
     }
     
     public void Rotate()
@@ -33,5 +35,15 @@ public class InteractableRotator2 : InteractableTile
     public void Start()
     {
         rotatedObjectSpriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    public void Lock()
+    {
+        IsSolved = true;
+    }
+    
+    public int GetCurrentSpriteIndex() 
+    {
+        return currentSpriteNumber;
     }
 }
