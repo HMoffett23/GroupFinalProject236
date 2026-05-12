@@ -20,7 +20,6 @@ public class StonesPuzzle : MonoBehaviour
         RemoveDuplicateStone(stone);
         currentStonesOrder[index] = stone;
         IsStonesOrderCorrect();
-        Debug.Log(string.Join(", ", currentStonesOrder));
     }
 
     public void RemoveDuplicateStone(string stone)
@@ -37,7 +36,6 @@ public class StonesPuzzle : MonoBehaviour
     public void RemoveStone(int index)
     {
         currentStonesOrder[index] = "";
-        Debug.Log(string.Join(", ", currentStonesOrder));
     }
     
     public bool IsStonesOrderCorrect()
