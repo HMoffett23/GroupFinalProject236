@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
     public float Speed = GameParameters.PlayerMovementSpeed;
     public float DashSpeed = GameParameters.PlayerDashSpeed;
     public Rigidbody2D Rigidbody;
+    public ParticleSystem RunParticles;
+    public TrailRenderer Trail;
 
     public void ApplyMovement(Vector2 direction)
     {
@@ -34,6 +36,8 @@ public class PlayerMovement : MonoBehaviour
     {
         ApplyMovement(direction);
         FaceCorrectDirection(direction);
+        RunParticles.Stop();
+        Trail.enabled = false;
     }
     
     private void ApplyDashMovement(Vector2 direction)
@@ -45,6 +49,8 @@ public class PlayerMovement : MonoBehaviour
     {
         ApplyDashMovement(direction);
         FaceCorrectDirection(direction);
+        RunParticles.Play();
+        Trail.enabled = true;
     }
     
 }
