@@ -55,7 +55,7 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < Prefabs.Count; i++)
         {
-            if (Prefabs[i].tag == itemToSpawn)
+            if (Prefabs[i].GetComponent<SpriteRenderer>().sprite.name == itemToSpawn)
             {
                 Instantiate(Prefabs[i], SpawnTools.CenterOfScreenLocationWorldSpace(), Quaternion.identity);
                 break;

@@ -15,6 +15,7 @@ TagManager:
   - StoneBlue
   - StoneYellow
   - StoneGreen
+  - GemstoneRed
   layers:
   - Default
   - TransparentFX
