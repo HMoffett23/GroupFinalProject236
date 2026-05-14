@@ -50817,6 +50817,7 @@ GameObject:
   - component: {fileID: 1040161186}
   - component: {fileID: 1040161188}
   - component: {fileID: 1040161189}
+  - component: {fileID: 1040161190}
   m_Layer: 0
   m_Name: Panel
   m_TagString: Untagged
@@ -50909,6 +50910,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1040161190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040161184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c5569cfe1514034a8a1bb93853dbf57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StartScreenUI
+  StartScreen: {fileID: 1040161189}
+  playerSpriteRenderer: {fileID: 1497093951}
 --- !u!4 &1042196960 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5273315458886497508, guid: 91a1615dbd4ab4eafaf5c19adfe21e62, type: 3}
