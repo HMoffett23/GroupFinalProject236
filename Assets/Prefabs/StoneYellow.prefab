@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6025792731679705396}
   - component: {fileID: 6230777363933715272}
   - component: {fileID: 4014952233301420515}
+  - component: {fileID: 8011455138053940739}
   m_Layer: 0
   m_Name: StoneYellow
   m_TagString: StoneYellow
@@ -82,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: e026e121b23cd45eba0e408519d4fdc8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a27a3ce12e112974bafaa6e1677966a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,3 +129,16 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &8011455138053940739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4716764251553619736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0c6c8a847344c0ca0c0a013a6af350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableSprite
+  Inventory: {fileID: 0}

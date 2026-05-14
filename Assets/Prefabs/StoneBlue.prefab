@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5479471481550287069}
   - component: {fileID: 52528143638166935}
   - component: {fileID: 7286908715775147647}
+  - component: {fileID: 4858071678118245763}
   m_Layer: 0
   m_Name: StoneBlue
   m_TagString: StoneBlue
@@ -82,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 198eb86fb68974490bdb2efdff922f43, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d89e2e05a74f5554abf99321684ed199, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,3 +129,16 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &4858071678118245763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4294956085479267429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0c6c8a847344c0ca0c0a013a6af350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableSprite
+  Inventory: {fileID: 0}
