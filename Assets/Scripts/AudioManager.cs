@@ -66,6 +66,7 @@ public class AudioManager : MonoBehaviour
         
         dedicatedSource.clip = clip;
         dedicatedSource.volume = .25f; 
+        dedicatedSource.pitch = 1f;
         dedicatedSource.Play(); 
     } 
 
