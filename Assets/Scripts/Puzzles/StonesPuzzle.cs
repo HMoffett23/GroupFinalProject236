@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StonesPuzzle : MonoBehaviour
 {
+    public AudioClip PuzzleSolved;
+    
     public StoneSlot StoneSlot;
     public List<StoneSlot> StoneSlots = new List<StoneSlot>();
     public List<string> currentStonesOrder = new List<string>{"", "", "", ""};
@@ -62,6 +64,8 @@ public class StonesPuzzle : MonoBehaviour
         {
             stoneSlot.DisableStone();
             stoneSlot.SetStoneColor(Color.green);
+            
+            AudioManager.Instance.PlayVariableSFX(PuzzleSolved);
         }
     }
 

@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class StatuesPuzzle : MonoBehaviour
 {
+    public AudioClip PuzzleSolved;
+    
     [Header("The Objects to Track")]
     public InteractableRotator2 statue1;
     public InteractableRotator2 statue2;
@@ -30,5 +32,7 @@ public class StatuesPuzzle : MonoBehaviour
         statue3.Lock();
         
         this.enabled = false;
+        
+        AudioManager.Instance.PlayVariableSFX(PuzzleSolved);
     }
 }
