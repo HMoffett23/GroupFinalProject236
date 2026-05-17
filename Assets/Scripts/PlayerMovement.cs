@@ -34,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
     
     public void Move(Vector2 direction)
     {
+        if (Game.IsGameNotStarted())
+            return;
+        
         ApplyMovement(direction);
         FaceCorrectDirection(direction);
         RunParticles.Stop();
