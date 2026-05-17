@@ -46273,7 +46273,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartScreenUI
   StartScreen: {fileID: 1040161189}
-  playerSpriteRenderer: {fileID: 1497093951}
 --- !u!4 &725313937 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7340890270212454858, guid: 2cb113cb4bcf24f9daeba3fac413bca5, type: 3}
@@ -50805,7 +50804,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartScreenUI
   StartScreen: {fileID: 1040161189}
-  playerSpriteRenderer: {fileID: 1497093951}
 --- !u!225 &1040161189
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -50831,7 +50829,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartScreenUI
   StartScreen: {fileID: 1040161189}
-  playerSpriteRenderer: {fileID: 1497093951}
 --- !u!4 &1042196960 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5273315458886497508, guid: 91a1615dbd4ab4eafaf5c19adfe21e62, type: 3}
