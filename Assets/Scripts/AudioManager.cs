@@ -11,8 +11,11 @@ public class AudioManager : MonoBehaviour
     public AudioSource waterSFX; 
     public AudioSource jungleSFX; 
 
-    [Header("Audio Clips")]
-    public AudioClip MenuMusic; 
+    [Header("Music Audio Clips")]
+    public AudioClip MenuMusic;
+    public AudioClip StonesMusic;
+    
+    [Header("Ambient Audio Clips")]
     public AudioClip JungleSounds; 
     public AudioClip WaterSounds; 
     
@@ -65,7 +68,7 @@ public class AudioManager : MonoBehaviour
         AudioSource dedicatedSource = sfxPool[clip.name];
         
         dedicatedSource.clip = clip;
-        dedicatedSource.volume = .25f; 
+        dedicatedSource.volume = .45f; 
         dedicatedSource.pitch = 1f;
         dedicatedSource.Play(); 
     } 
@@ -91,10 +94,10 @@ public class AudioManager : MonoBehaviour
             case Puzzles.MainMenu: 
                 PlayBackgroundMusic(MenuMusic); 
                 break; 
-            /* 
             case Puzzles.Stones: 
                 PlayBackgroundMusic(StonesMusic); 
                 break; 
+            /*
             case Puzzles.Statues: 
                 PlayBackgroundMusic(StatuesMusic); 
                 break; 
@@ -108,7 +111,7 @@ public class AudioManager : MonoBehaviour
     private void PlayBackgroundMusic(AudioClip clip) 
     { 
         if (clip == null) return;
-        backgroundMusic.clip = clip; 
+        backgroundMusic.clip = clip;
         backgroundMusic.Play(); 
     } 
 

@@ -59254,6 +59254,7 @@ MonoBehaviour:
   waterSFX: {fileID: 322739301}
   jungleSFX: {fileID: 1050449318}
   MenuMusic: {fileID: 8300000, guid: 47c3d8596ba18456c9341c99aeac9278, type: 3}
+  StonesMusic: {fileID: 8300000, guid: 901afb835f547467eb95590850ca660e, type: 3}
   JungleSounds: {fileID: 8300000, guid: 98da93bc9836b4c5f9edf86191954f2a, type: 3}
   WaterSounds: {fileID: 8300000, guid: 4f97632d64d204894acd56ff761fd016, type: 3}
   currentPuzzle: 0
@@ -60119,13 +60120,13 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.399
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 170
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
