@@ -116,8 +116,6 @@ public class AudioManager : MonoBehaviour
     } 
 
     /*
-    // Left commented out as requested, but updated to route through the new isolated pooling system 
-    // to fix future volume variance issues.
     public void PlayCollectSFX() { PlayVariableSFX(collect); } 
     public void PlayWinSFX() { PlayVariableSFX(win); backgroundMusic.Stop(); } 
     public void PlayLoseSFX() { PlayVariableSFX(lose); backgroundMusic.Stop(); } 
