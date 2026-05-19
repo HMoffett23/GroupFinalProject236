@@ -46790,6 +46790,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7114527644869100403, guid: 14505e6014f79894288e6aa30054d93a, type: 3}
   m_PrefabInstance: {fileID: 758933276}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &790470671 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+  m_PrefabInstance: {fileID: 5779630458057003510}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &797398251 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4144455656093911464, guid: ac1637cd99c2a4a3f8c6a52ab2d59f8c, type: 3}
@@ -55818,6 +55823,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7114527644869100403, guid: 14505e6014f79894288e6aa30054d93a, type: 3}
   m_PrefabInstance: {fileID: 1313367950}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1330675527
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1842655230}
+    m_Modifications:
+    - target: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327703684368153532, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_Name
+      value: MusicSwitcher (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6963011504866588129, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: PuzzleToSwitchTo
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
 --- !u!1001 &1348371346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56437,6 +56503,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!4 &1453032670 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+  m_PrefabInstance: {fileID: 1330675527}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1473375817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59255,6 +59326,7 @@ MonoBehaviour:
   jungleSFX: {fileID: 1050449318}
   MenuMusic: {fileID: 8300000, guid: 47c3d8596ba18456c9341c99aeac9278, type: 3}
   StonesMusic: {fileID: 8300000, guid: 901afb835f547467eb95590850ca660e, type: 3}
+  StatuesMusic: {fileID: 8300000, guid: 4aa6a7585d7594e6199dc9715ad3acbb, type: 3}
   JungleSounds: {fileID: 8300000, guid: 98da93bc9836b4c5f9edf86191954f2a, type: 3}
   WaterSounds: {fileID: 8300000, guid: 4f97632d64d204894acd56ff761fd016, type: 3}
   currentPuzzle: 0
@@ -59273,6 +59345,8 @@ Transform:
   m_Children:
   - {fileID: 1947578382}
   - {fileID: 529947563}
+  - {fileID: 790470671}
+  - {fileID: 1453032670}
   m_Father: {fileID: 1313361346}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1856400943
@@ -61513,6 +61587,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4cdc42b1acb340b28f8a4af770aa9ba, type: 3}
+--- !u!1001 &5779630458057003510
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1842655230}
+    m_Modifications:
+    - target: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692053484917143197, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327703684368153532, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: m_Name
+      value: MusicSwitcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 6963011504866588129, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
+      propertyPath: PuzzleToSwitchTo
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d6f2ab55e91b54b5492f1774dd72b37b, type: 3}
 --- !u!1001 &6633332534770121995
 PrefabInstance:
   m_ObjectHideFlags: 0

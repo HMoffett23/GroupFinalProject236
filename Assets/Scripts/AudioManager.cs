@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
     [Header("Music Audio Clips")]
     public AudioClip MenuMusic;
     public AudioClip StonesMusic;
+    public AudioClip StatuesMusic;
     
     [Header("Ambient Audio Clips")]
     public AudioClip JungleSounds; 
@@ -36,17 +37,19 @@ public class AudioManager : MonoBehaviour
     { 
         if (Instance == null) 
         { 
-            Instance = this; 
+            Instance = this;
+            
+            currentPuzzle = Puzzles.Idol;
         } 
         else 
         { 
             Destroy(gameObject); 
         } 
     } 
-
+    
     private void Start() 
     { 
-        AssignMusic(); 
+        AssignMusic(Puzzles.MainMenu); 
         PlayJungleSounds(JungleSounds); 
         PlayWaterSounds(WaterSounds); 
     } 
@@ -87,8 +90,13 @@ public class AudioManager : MonoBehaviour
         jungleSFX.Play(); 
     } 
 
-    private void AssignMusic() 
-    { 
+    public void AssignMusic(Puzzles newPuzzle)
+    {
+        if (currentPuzzle == newPuzzle)
+            return;
+        
+        currentPuzzle = newPuzzle;
+        
         switch (currentPuzzle) 
         { 
             case Puzzles.MainMenu: 
@@ -97,10 +105,10 @@ public class AudioManager : MonoBehaviour
             case Puzzles.Stones: 
                 PlayBackgroundMusic(StonesMusic); 
                 break; 
-            /*
             case Puzzles.Statues: 
                 PlayBackgroundMusic(StatuesMusic); 
                 break; 
+            /*
             case Puzzles.Maze: 
                 PlayBackgroundMusic(MazeMusic); 
                 break; 
@@ -113,7 +121,7 @@ public class AudioManager : MonoBehaviour
         if (clip == null) return;
         backgroundMusic.clip = clip;
         backgroundMusic.Play(); 
-    } 
+    }
 
     /*
     public void PlayCollectSFX() { PlayVariableSFX(collect); } 
