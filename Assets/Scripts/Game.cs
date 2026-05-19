@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
+    public AudioManager audioManager;
     private static bool isGameStarted = false;
     public StartScreenUI StartScreenUI;
     
@@ -14,6 +15,8 @@ public class Game : MonoBehaviour
     {
         StartScreenUI.HideStartScreen();
         isGameStarted = true;
+
+        audioManager.AssignMusic(AudioManager.Puzzles.Stones);
     }
 
     public static bool IsGameStarted()
