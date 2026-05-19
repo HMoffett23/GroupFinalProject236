@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class InteractableRotator2 : InteractableTile
 {
+    public AudioClip StatueTurn;
+    
     public List<Sprite> Sprites;
     public bool IsSolved = false;
     
@@ -30,6 +32,8 @@ public class InteractableRotator2 : InteractableTile
     private void ShowNextSprite()
     {
         rotatedObjectSpriteRenderer.sprite = Sprites[currentSpriteNumber];
+        
+        AudioManager.Instance.PlayVariableSFX(StatueTurn);
     }
     
     public void Start()

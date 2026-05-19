@@ -1,95 +1,176 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance { get; private set; }
-    public AudioSource backgroundMusic;
-    //public AudioSource playerSFX;
-    //public AudioSource worldSFX;
+    public static AudioManager Instance { get; private set; } 
+    
+    [Header("Crossfade Settings")]
+    public float fadeDuration = GameParameters.FadeDurationInSeconds;
+    private AudioSource activeSource;
+    private Coroutine crossfadeCoroutine;
 
-    public AudioClip levelMusic;
-    //public AudioClip level1Music;
-    //public AudioClip level2Music;
-    //public AudioClip level3Music;
+    [Header("Ambient & Music Sources")]
+    public AudioSource musicSourceA;
+    public AudioSource musicSourceB; 
+    public AudioSource waterSFX; 
+    public AudioSource jungleSFX; 
 
-    //public AudioClip collect;
-
-    //public AudioClip win;
-    //public AudioClip lose;
-
-    //public AudioClip uiClick;
-
+    [Header("Music Audio Clips")]
+    public AudioClip MenuMusic;
+    public AudioClip StonesMusic;
+    public AudioClip StatuesMusic;
+    
+    [Header("Ambient Audio Clips")]
+    public AudioClip JungleSounds; 
+    public AudioClip WaterSounds; 
+    
     public Puzzles currentPuzzle;
 
     public enum Puzzles
     {
-        One,
-        Two,
-        Three,
-        MainMenu
+        MainMenu,
+        Stones, 
+        Statues, 
+        Maze,
+        Idol
     }
+    
+    private Dictionary<string, AudioSource> sfxPool = new Dictionary<string, AudioSource>();
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
+    private void Awake() 
+    { 
+        if (Instance == null) 
+        { 
             Instance = this;
-        }
-        else
+            
+            activeSource = musicSourceA; 
+        } 
+        else 
+        { 
+            Destroy(gameObject); 
+        } 
+    } 
+    
+    private void Start() 
+    { 
+        currentPuzzle = Puzzles.Idol;
+        
+        AssignMusic(Puzzles.MainMenu); 
+        PlayJungleSounds(JungleSounds); 
+        PlayWaterSounds(WaterSounds); 
+    } 
+    
+    public void PlayVariableSFX(AudioClip clip) 
+    { 
+        if (clip == null) return;
+        
+        if (!sfxPool.ContainsKey(clip.name))
         {
-            Destroy(this);
+            AudioSource newSource = gameObject.AddComponent<AudioSource>();
+            
+            newSource.playOnAwake = false;
+            newSource.spatialBlend = 0f;
+            
+            sfxPool.Add(clip.name, newSource);
         }
+
+        AudioSource dedicatedSource = sfxPool[clip.name];
+        
+        dedicatedSource.clip = clip;
+        dedicatedSource.volume = .45f; 
+        dedicatedSource.pitch = 1f;
+        dedicatedSource.Play(); 
+    } 
+
+    private void PlayWaterSounds(AudioClip clip) 
+    { 
+        if (clip == null) return;
+        waterSFX.clip = clip; 
+        waterSFX.Play(); 
+    } 
+
+    private void PlayJungleSounds(AudioClip clip) 
+    { 
+        if (clip == null) return;
+        jungleSFX.clip = clip; 
+        jungleSFX.Play(); 
+    } 
+
+    public void AssignMusic(Puzzles newPuzzle)
+    {
+        if (currentPuzzle == newPuzzle)
+            return;
+        
+        currentPuzzle = newPuzzle;
+        
+        switch (currentPuzzle) 
+        { 
+            case Puzzles.MainMenu: 
+                CrossfadeToNewMusic(MenuMusic); 
+                break; 
+            case Puzzles.Stones: 
+                CrossfadeToNewMusic(StonesMusic); 
+                break; 
+            case Puzzles.Statues: 
+                CrossfadeToNewMusic(StatuesMusic); 
+                break; 
+            /*
+            case Puzzles.Maze: 
+                CrossfadeToNewMusic(MazeMusic); 
+                break; 
+            */ 
+        } 
     }
 
-    private void Start()
+    private void CrossfadeToNewMusic(AudioClip newClip)
     {
-        AssignMusic();
-    }
-
-    private void AssignMusic()
-    {
-        switch (currentPuzzle)
+        if (newClip == null) return;
+        
+        if (crossfadeCoroutine != null)
         {
-            case Puzzles.MainMenu:
-                PlayBackgroundMusic(levelMusic);
-                break;
-           /* case Puzzles.One:
-                PlayBackgroundMusic(level1Music);
-                break;
-            case Puzzles.Two:
-                PlayBackgroundMusic(level2Music);
-                break;
-            case Puzzles.Three:
-                PlayBackgroundMusic(level3Music);
-                break; */
+            StopCoroutine(crossfadeCoroutine);
         }
+        
+        AudioSource newSource = (activeSource == musicSourceA) ? musicSourceB : musicSourceA;
+        
+        crossfadeCoroutine = StartCoroutine(CrossfadeSequence(activeSource, newSource, newClip));
+        
+        activeSource = newSource;
     }
 
-    private void PlayBackgroundMusic(AudioClip clip)
+    private IEnumerator CrossfadeSequence(AudioSource fadingOut, AudioSource fadingIn, AudioClip newClip)
     {
-        backgroundMusic.PlayOneShot(clip);
+        fadingIn.clip = newClip;
+        fadingIn.volume = 0f;
+        fadingIn.Play();
+
+        float startVolumeOut = fadingOut.volume;
+        float targetVolumeIn = 1.0f;
+        float timer = 0f;
+        
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+            float normalizedTime = timer / fadeDuration;
+
+            fadingOut.volume = Mathf.Lerp(startVolumeOut, 0f, normalizedTime);
+            fadingIn.volume = Mathf.Lerp(0f, targetVolumeIn, normalizedTime);
+
+            yield return null;
+        }
+        
+        fadingOut.volume = 0f;
+        fadingOut.Stop();
+        fadingIn.volume = targetVolumeIn;
     }
 
-    /*public void PlayCollectSFX()
-    {
-        playerSFX.PlayOneShot(collect);
-    }
-
-    public void PlayWinSFX()
-    {
-        worldSFX.PlayOneShot(win);
-        backgroundMusic.Stop();
-    }
-
-    public void PlayLoseSFX()
-    {
-        worldSFX.PlayOneShot(lose);
-        backgroundMusic.Stop();
-    }
-
-    public void PlayUIClick()
-    {
-        playerSFX.PlayOneShot(uiClick);
-    }*/
+    /*
+    public void PlayCollectSFX() { PlayVariableSFX(collect); } 
+    public void PlayWinSFX() { PlayVariableSFX(win); backgroundMusic.Stop(); } 
+    public void PlayLoseSFX() { PlayVariableSFX(lose); backgroundMusic.Stop(); } 
+    public void PlayUIClick() { PlayVariableSFX(uiClick); }
+    */
 }
