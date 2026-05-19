@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -5,9 +6,15 @@ using UnityEngine.Serialization;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; } 
+    
+    [Header("Crossfade Settings")]
+    public float fadeDuration = GameParameters.FadeDurationInSeconds;
+    private AudioSource activeSource;
+    private Coroutine crossfadeCoroutine;
 
     [Header("Ambient & Music Sources")]
-    public AudioSource backgroundMusic; 
+    public AudioSource musicSourceA;
+    public AudioSource musicSourceB; 
     public AudioSource waterSFX; 
     public AudioSource jungleSFX; 
 
@@ -39,7 +46,7 @@ public class AudioManager : MonoBehaviour
         { 
             Instance = this;
             
-            currentPuzzle = Puzzles.Idol;
+            activeSource = musicSourceA; 
         } 
         else 
         { 
@@ -49,6 +56,8 @@ public class AudioManager : MonoBehaviour
     
     private void Start() 
     { 
+        currentPuzzle = Puzzles.Idol;
+        
         AssignMusic(Puzzles.MainMenu); 
         PlayJungleSounds(JungleSounds); 
         PlayWaterSounds(WaterSounds); 
@@ -100,27 +109,62 @@ public class AudioManager : MonoBehaviour
         switch (currentPuzzle) 
         { 
             case Puzzles.MainMenu: 
-                PlayBackgroundMusic(MenuMusic); 
+                CrossfadeToNewMusic(MenuMusic); 
                 break; 
             case Puzzles.Stones: 
-                PlayBackgroundMusic(StonesMusic); 
+                CrossfadeToNewMusic(StonesMusic); 
                 break; 
             case Puzzles.Statues: 
-                PlayBackgroundMusic(StatuesMusic); 
+                CrossfadeToNewMusic(StatuesMusic); 
                 break; 
             /*
             case Puzzles.Maze: 
-                PlayBackgroundMusic(MazeMusic); 
+                CrossfadeToNewMusic(MazeMusic); 
                 break; 
             */ 
         } 
-    } 
+    }
 
-    private void PlayBackgroundMusic(AudioClip clip) 
-    { 
-        if (clip == null) return;
-        backgroundMusic.clip = clip;
-        backgroundMusic.Play(); 
+    private void CrossfadeToNewMusic(AudioClip newClip)
+    {
+        if (newClip == null) return;
+        
+        if (crossfadeCoroutine != null)
+        {
+            StopCoroutine(crossfadeCoroutine);
+        }
+        
+        AudioSource newSource = (activeSource == musicSourceA) ? musicSourceB : musicSourceA;
+        
+        crossfadeCoroutine = StartCoroutine(CrossfadeSequence(activeSource, newSource, newClip));
+        
+        activeSource = newSource;
+    }
+
+    private IEnumerator CrossfadeSequence(AudioSource fadingOut, AudioSource fadingIn, AudioClip newClip)
+    {
+        fadingIn.clip = newClip;
+        fadingIn.volume = 0f;
+        fadingIn.Play();
+
+        float startVolumeOut = fadingOut.volume;
+        float targetVolumeIn = 1.0f;
+        float timer = 0f;
+        
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+            float normalizedTime = timer / fadeDuration;
+
+            fadingOut.volume = Mathf.Lerp(startVolumeOut, 0f, normalizedTime);
+            fadingIn.volume = Mathf.Lerp(0f, targetVolumeIn, normalizedTime);
+
+            yield return null;
+        }
+        
+        fadingOut.volume = 0f;
+        fadingOut.Stop();
+        fadingIn.volume = targetVolumeIn;
     }
 
     /*

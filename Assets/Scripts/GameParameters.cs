@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class GameParameters : MonoBehaviour
 {
+    public static float FadeDurationInSeconds = 1.5f;
+    
     public static float PlayerMovementSpeed = 5f;
     public static float PlayerDashSpeed = 20f;
 
@@ -14,6 +16,4 @@ public class GameParameters : MonoBehaviour
     public static Key MoveDown  = Key.S;
     public static Key Dash  = Key.Space;
     public static Key Interact = Key.E;
-    
-    public static float InteractTimeInSeconds = 0.1f;
 }
